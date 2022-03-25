@@ -12,13 +12,25 @@
 
 #include "fractol.h"
 
-int	main()
+int	ft_check(t_vars *vars, const char *str)
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
+	if (ft_strnstr(str, "Mandelbrot", 10) != 0)
+		vars->formula = &mandelbrot;
+	else
+		return (0);
+	return (1);
+}
 
-	mlx_ptr = mlx_init();
-	mlx_win = mlx_new_window(mlx_ptr, 1920, 1080, "fractol");
-	mlx_pixel_put(mlx_ptr, mlx_win, 250, 250, 0x111111);
-	mlx_loop(mlx_ptr);
+int	main(int argc, char *argv[])
+{
+	t_vars	vars;
+	
+	if (argc != 2)
+		ft_help();
+	else if (ft_check(&vars, argv[1]))
+	{
+		ft_init (&vars);
+		mlx_loop(vars.mlx);
+	}
+	return (0);
 }

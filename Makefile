@@ -2,11 +2,27 @@ NAME		=	fractol
 
 HEADER		=	fractol.h
 
-SRCS		= 	fractol.c
+SRCS		= 	fractol.c key_commands.c ./formulas/mandelbrot.c\
+				get_color.c ft_utils.c ft_strnstr.c\
+				draw.c ft_init.c mouse_commands.c\
+				
 
 OBJ			=	$(SRCS:%.c=%.o)
 
-FLAGS		=	-Wall -Wextra -Werror
+
+
+
+
+
+FLAGS		=
+
+
+
+
+
+
+
+
 
 INCLUDE		=	-I /usr/local/include
 

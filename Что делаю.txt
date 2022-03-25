@@ -1,0 +1,11 @@
+man /usr/share/man/man3/
+gcc -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit zxc.c
+
+Создать треугольник
+Сделать домашку по докам
+
+21.03
+Сделать градиент
+
+22.03
+Изучить mlx_loop_frame
