@@ -5,6 +5,7 @@ HEADER		=	fractol.h
 SRCS		= 	fractol.c key_commands.c ./formulas/mandelbrot.c\
 				get_color.c ft_utils.c ft_strnstr.c\
 				draw.c ft_init.c mouse_commands.c\
+				./formulas/julia.c ./formulas/burning_ship.c
 				
 
 OBJ			=	$(SRCS:%.c=%.o)
@@ -39,7 +40,7 @@ all			:	$(NAME)
 $(NAME)		:	$(OBJ)
 					@gcc $(FLAGS) $(INCLUDE) $(MLX) -o $(NAME) $(OBJ)
 
-clean		:	
+clean		:
 					@rm -f $(OBJ)
 
 fclean		:	clean

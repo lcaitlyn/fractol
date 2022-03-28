@@ -22,6 +22,10 @@ int	win_close(t_vars *vars)
 
 void	ft_help()
 {
-	write (1, "Put map\n", 8);
+	write (1, "\nPlease choose set:\n", 20);
+	write (1, "\t➖ Mandelbrot[1] 🌌\n", 25);
+	write (1, "\t➖ Julia[2] 🎇\n", 20);
+	write (1, "\t➖ Burning Ship[3] 🎆\n", 26);
+	write (1, "./fractol [<id> or <name>]\n\n", 29);
 	exit (0);
 }

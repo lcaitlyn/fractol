@@ -30,7 +30,7 @@ int	mouse_commands(int button, int x, int y, t_vars *vars)
 				+ vars->min.re,
 			(double)y / (HEIGHT / (vars->max.im - vars->min.im))
 				* -1 + vars->max.im);
-		if (button == MOUSE_SCROLL_UP)
+		if (button == MOUSE_SCROLL_DOWN)
 			zoom = 0.80;
 		else
 			zoom = 1.20;
@@ -41,5 +41,6 @@ int	mouse_commands(int button, int x, int y, t_vars *vars)
 		vars->max.im = interpolate(mouse.im, vars->max.im, interpolation);
 		draw_fractal(vars);
 	}
+//	if ()
 	return (0);
 }

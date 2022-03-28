@@ -23,12 +23,13 @@ t_complex init_complex(double re, double im)
 
 void	set_default(t_vars *vars)
 {
-	vars->max_iteration = 50;
+	vars->max_iteration = 30;
 	vars->min = init_complex(-2.0, -2.0);
 	vars->max.re = 2.0;
 	vars->max.im = vars->min.im + (vars->max.re - vars->min.re) * HEIGHT / WIDTH;
 	vars->color_shift = 0;
-	vars->formula = &mandelbrot;
+	vars->k = init_complex(-0.4, -0.6);
+	vars->mouse = 2;
 }
 
 void	ft_init(t_vars *vars)
@@ -41,6 +42,8 @@ void	ft_init(t_vars *vars)
 	mlx_hook(vars->win, 2, 0, key_commands, vars);
 	mlx_hook(vars->win, 17, 0, win_close, vars);
 	mlx_hook(vars->win, 4, 0, mouse_commands, vars);
+	if (vars->mouse == 2)
+		mlx_hook(vars->win, 6, 0, julia_motion, vars);
 	set_default(vars);
 	draw_fractal(vars);
 }

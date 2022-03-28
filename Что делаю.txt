@@ -11,3 +11,5 @@ gcc -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit zxc.c
 Изучить mlx_loop_frame
 25.03
 Сделать Жулиа?
+
+

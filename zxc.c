@@ -98,7 +98,7 @@ void	draw_fractal(t_vars *vars)
 	
 void	set_default(t_vars *vars)
 {
-	vars->max_iteration = 50;
+	vars->max_iteration = 1;
 	vars->min = init_complex(-2.0, -2.0);
 	vars->max.re = 2.0;
 	vars->max.im = vars->min.im + (vars->max.re - vars->min.re) * HEIGHT / WIDTH;

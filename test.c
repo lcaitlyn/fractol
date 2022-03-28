@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include "fractol.h"
 
 int main()
 {
@@ -41,7 +42,9 @@ int main()
 		printf ("%d\n\n", flag % 3);
 		flag++;
 	}*/
-	int x = 0;
+
+	
+	/*	int x = 0;
 	int y = 0;
 	int max_iteration = 50;
 	
@@ -73,6 +76,8 @@ int main()
 		}
 		y++;
 	}
-	
+	*/
+	write (1, "➕", 4);
+//	printf ("%d", sizeof('🎆'));
 	return 0;
 }

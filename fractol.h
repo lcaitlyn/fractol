@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include "./minilibx_macos/mlx.h"
+#include <mlx.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -39,17 +39,6 @@ typedef struct s_data
 	int		endian;
 }	t_data;
 
-
-
-/*
-typedef struct s_color
-{
-	char	color[3];
-};
-*/
-
-
-
 typedef struct	s_vars
 {
 	void		*mlx;
@@ -60,6 +49,8 @@ typedef struct	s_vars
 	t_complex	max;
 	t_complex	factor;
 	t_complex	c;
+	t_complex	k;
+	int			mouse;
 	int			color_shift;
 	char		color[3];
 	int			(*formula)(struct s_vars *vars);
@@ -71,19 +62,21 @@ char		*ft_strnstr(const char *s1, const char *s2, int n);
 void		ft_help();
 int			win_close(t_vars *vars);
 
-void		ft_init(t_vars *vars);
-
 int			key_commands(int key, t_vars *vars);
 int			mouse_commands(int button, int x, int y, t_vars *vars);
+int			julia_motion(int x, int y, t_vars *vars);
 
 void		draw_fractal(t_vars *vars);
 
 void		get_color(int iteration, t_vars *vars);
 
+void		ft_init(t_vars *vars);
 void		set_default(t_vars *vars);
 t_complex	init_complex(double re, double im);
 
 int			mandelbrot(t_vars *vars);
+int			julia(t_vars *vars);
+int			burning_ship(t_vars *vars);
 
 
 

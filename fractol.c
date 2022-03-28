@@ -14,10 +14,20 @@
 
 int	ft_check(t_vars *vars, const char *str)
 {
-	if (ft_strnstr(str, "Mandelbrot", 10) != 0)
+	if (ft_strnstr(str, "Mandelbrot", 10) != 0
+		|| (str[0] == '1' && !str[1]))
 		vars->formula = &mandelbrot;
+	else if (ft_strnstr(str, "Julia", 5) != 0
+		|| (str[0] == '2' && !str[1]))
+	{
+		vars->formula = &julia;
+		vars->mouse = 2;
+	}
+	else if (ft_strnstr(str, "Burning Ship", 12) != 0
+	|| (str[0] == '3' && !str[1]))
+		vars->formula = &burning_ship;
 	else
-		return (0);
+		ft_help();
 	return (1);
 }
 
