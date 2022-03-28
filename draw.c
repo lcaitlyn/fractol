@@ -30,6 +30,7 @@ void	draw_fractal(t_vars *vars)
 	int x;
 	int y;
 	
+	
 	factor.re = (vars->max.re - vars->min.re) / (WIDTH - 1);
 	factor.im = (vars->max.im - vars->min.im) / (HEIGHT - 1);
 	y = 0;

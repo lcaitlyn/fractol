@@ -1,4 +1,5 @@
 #include "fractol.h"
+#include <pthread.h>
 
 t_complex init_complex(double re, double im)
 {
@@ -55,13 +56,13 @@ int	key_contols(int key, t_vars *vars)
 		else if (vars->max_iteration < 1000000000)
 			vars->max_iteration = (int)(vars->max_iteration * 1.05);
 	}
-	draw_fractol(vars);
+	draw_fractal(vars);
 	return (0);
 }
 
 
 
-void	draw_fractol(t_vars *vars)
+void	draw_fractal(t_vars *vars)
 {
 	int			iteration;
 	t_complex	factor;
@@ -71,7 +72,8 @@ void	draw_fractol(t_vars *vars)
 	
 	factor.re = (vars->max.re - vars->min.re) / (WIDTH - 1);
 	factor.im = (vars->max.im - vars->min.im) / (HEIGHT - 1);
-	
+	mlx_destroy_image(vars->mlx, vars->img.img);
+	vars->img.img = mlx_new_image(vars->mlx, WIDTH, HEIGHT);
 	
 	y = 0;
 		while (y < HEIGHT)
@@ -113,6 +115,8 @@ int main()
 	t_vars vars;
 	t_data img;
 	
+	pthread_t	thread;
+	
 	int flag = 0;
 	
 	
@@ -127,9 +131,12 @@ int main()
 	mlx_hook(vars.win, 2, 0, key_contols, &vars);
 	mlx_hook(vars.win, 17, 0, win_close, &vars);
 	mlx_hook(vars.win, 6, 0, move, &vars);
+	mlx_hook(vars.win, 4, 0, mouse_commands, &vars);
 	
 	set_default(&vars);
-	draw_fractol(&vars);
+//	pthread_create (&thread, NULL, (void *(*)(void *))draw_fractal, (void *)&vars);
+//	pthread_join (thread, NULL);
+	draw_fractal(&vars);
 	
 	
 	

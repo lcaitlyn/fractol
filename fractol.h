@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <mlx.h>
+#include "./minilibx_macos/mlx.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
