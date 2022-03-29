@@ -19,8 +19,8 @@ void	help(t_vars *vars)
 	mlx_string_put(vars->mlx, vars->win, WIDTH / 4, HEIGHT / 4, 0x00FFFFFF, "H - Help");
 	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 30, 0x00FFFFFF, "R - Reset");
 	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 60, 0x00FFFFFF, "+/- Add/Remove max iterations");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 90, 0x00FFFFFF, "←↑↓→ - Move");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 120, 0x00FFFFFF, "Scroll ↑↓ - Zoom");
+	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 90, 0x00FFFFFF, "Arrows UP/DOWN/LEFT/RIGHT - Move");
+	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 120, 0x00FFFFFF, "Scroll UP/DOWN - Zoom");
 	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 150, 0x00FFFFFF, "Space - Unlock mousemove (Only in Julia!)");
 	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 180, 0x00FFFFFF, "Esc - Quit");
 }

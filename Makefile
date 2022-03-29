@@ -15,7 +15,7 @@ OBJ			=	$(SRCS:%.c=%.o)
 
 
 
-FLAGS		=
+FLAGS		=	-Wall -Wextra -Werror
 
 
 
