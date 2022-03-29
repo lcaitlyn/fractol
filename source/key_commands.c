@@ -10,19 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	help(t_vars *vars)
 {
 	vars->mouse = 2;
 	mlx_clear_window(vars->mlx, vars->win);
-	mlx_string_put(vars->mlx, vars->win, WIDTH / 4, HEIGHT / 4, 0x00FFFFFF, "H - Help");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 30, 0x00FFFFFF, "R - Reset");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 60, 0x00FFFFFF, "+/- Add/Remove max iterations");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 90, 0x00FFFFFF, "Arrows UP/DOWN/LEFT/RIGHT - Move");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 120, 0x00FFFFFF, "Scroll UP/DOWN - Zoom");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 150, 0x00FFFFFF, "Space - Unlock mousemove (Only in Julia!)");
-	mlx_string_put(vars->mlx, vars->win, (WIDTH / 4), (HEIGHT / 4) + 180, 0x00FFFFFF, "Esc - Quit");
+	mlx_string_put(vars->mlx, vars->win,
+		WIDTH / 4, HEIGHT / 4, 0x00FFFFFF, "H - Help");
+	mlx_string_put(vars->mlx, vars->win,
+		(WIDTH / 4), (HEIGHT / 4) + 30, 0x00FFFFFF, "R - Reset");
+	mlx_string_put(vars->mlx, vars->win,
+		(WIDTH / 4), (HEIGHT / 4) + 60,
+		0x00FFFFFF, "+/- Add/Remove max iterations");
+	mlx_string_put(vars->mlx, vars->win,
+		(WIDTH / 4), (HEIGHT / 4) + 90, 0x00FFFFFF,
+		"Arrows UP/DOWN/LEFT/RIGHT - Move");
+	mlx_string_put(vars->mlx, vars->win,
+		(WIDTH / 4), (HEIGHT / 4) + 120, 0x00FFFFFF,
+		"Scroll UP/DOWN - Zoom");
+	mlx_string_put(vars->mlx, vars->win,
+		(WIDTH / 4), (HEIGHT / 4) + 150, 0x00FFFFFF,
+		"Space - Unlock mousemove (Only in Julia!)");
+	mlx_string_put(vars->mlx, vars->win,
+		(WIDTH / 4), (HEIGHT / 4) + 180, 0x00FFFFFF, "Esc - Quit");
 }
 
 void	key_move(int key, t_vars *vars)
@@ -30,7 +41,7 @@ void	key_move(int key, t_vars *vars)
 	t_complex	delta;
 
 	delta = init_complex(fabs(vars->max.re - vars->min.re),
-		fabs(vars->max.im - vars->min.im));
+			fabs(vars->max.im - vars->min.im));
 	if (key == ARROW_LEFT)
 	{
 		vars->min.re -= delta.re * 0.05;

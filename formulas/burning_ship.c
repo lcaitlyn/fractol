@@ -12,7 +12,7 @@
 
 #include "../fractol.h"
 
-int		burning_ship(t_vars *vars)
+int	burning_ship(t_vars *vars)
 {
 	int			iteration;
 	t_complex	z;
@@ -23,8 +23,8 @@ int		burning_ship(t_vars *vars)
 		&& iteration < vars->max_iteration)
 	{
 		z = init_complex(
-			pow(z.re, 2.0) - pow(z.im, 2.0) + vars->c.re,
-			-2.0 * fabs(z.re * z.im) + vars->c.im);
+				pow(z.re, 2.0) - pow(z.im, 2.0) + vars->c.re,
+				-2.0 * fabs(z.re * z.im) + vars->c.im);
 		iteration++;
 	}
 	return (iteration);

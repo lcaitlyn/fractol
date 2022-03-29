@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	ft_check(t_vars *vars, const char *str)
 {
@@ -24,7 +24,7 @@ int	ft_check(t_vars *vars, const char *str)
 		vars->mouse = 2;
 	}
 	else if (ft_strnstr(str, "Burning Ship", 12) != 0
-	|| (str[0] == '3' && !str[1]))
+		|| (str[0] == '3' && !str[1]))
 		vars->formula = &burning_ship;
 	else
 		ft_help();
@@ -34,7 +34,7 @@ int	ft_check(t_vars *vars, const char *str)
 int	main(int argc, char *argv[])
 {
 	t_vars	vars;
-	
+
 	if (argc != 2)
 		ft_help();
 	else if (ft_check(&vars, argv[1]))

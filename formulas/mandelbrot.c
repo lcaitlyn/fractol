@@ -16,15 +16,15 @@ int	mandelbrot(t_vars *vars)
 {
 	int			iteration;
 	t_complex	z;
-	
+
 	z = init_complex(vars->c.re, vars->c.im);
 	iteration = 0;
 	while (pow(z.re, 2.0) + pow(z.im, 2.0) <= 4
 		&& iteration < vars->max_iteration)
 	{
 		z = init_complex(
-			pow(z.re, 2.0) - pow(z.im, 2.0) + vars->c.re,
-			2.0 * z.re * z.im + vars->c.im);
+				pow(z.re, 2.0) - pow(z.im, 2.0) + vars->c.re,
+				2.0 * z.re * z.im + vars->c.im);
 		iteration++;
 	}
 	return (iteration);

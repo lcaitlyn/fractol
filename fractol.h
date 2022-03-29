@@ -13,22 +13,21 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <mlx.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include "keys.h"
+# include <mlx.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <math.h>
+# include "keys.h"
 
 # define WIDTH 600
 # define HEIGHT 600
 
-
-typedef struct		s_complex
+typedef struct s_complex
 {
-	double			re;
-	double			im;
-}					t_complex;
+	double	re;
+	double	im;
+}	t_complex;
 
 typedef struct s_data
 {
@@ -39,7 +38,7 @@ typedef struct s_data
 	int		endian;
 }	t_data;
 
-typedef struct	s_vars
+typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
@@ -56,10 +55,9 @@ typedef struct	s_vars
 	int			(*formula)(struct s_vars *vars);
 }	t_vars;
 
-
 char		*ft_strnstr(const char *s1, const char *s2, int n);
 
-void		ft_help();
+void		ft_help(void);
 int			win_close(t_vars *vars);
 
 int			key_commands(int key, t_vars *vars);
@@ -77,8 +75,5 @@ t_complex	init_complex(double re, double im);
 int			mandelbrot(t_vars *vars);
 int			julia(t_vars *vars);
 int			burning_ship(t_vars *vars);
-
-
-
 
 #endif

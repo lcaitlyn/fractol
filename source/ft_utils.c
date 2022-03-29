@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 int	win_close(t_vars *vars)
 {
@@ -20,7 +20,7 @@ int	win_close(t_vars *vars)
 	return (0);
 }
 
-void	ft_help()
+void	ft_help(void)
 {
 	write (1, "\nPlease choose set:\n", 20);
 	write (1, "\t➖ Mandelbrot[1] 🌌\n", 25);

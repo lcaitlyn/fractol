@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 static double	interpolate(double start, double end, double interpolation)
 {
@@ -26,9 +26,9 @@ int	mouse_commands(int button, int x, int y, t_vars *vars)
 	if (button == MOUSE_SCROLL_UP || button == MOUSE_SCROLL_DOWN)
 	{
 		mouse = init_complex(
-			(double)x / (WIDTH / (vars->max.re - vars->min.re))
+				(double)x / (WIDTH / (vars->max.re - vars->min.re))
 				+ vars->min.re,
-			(double)y / (HEIGHT / (vars->max.im - vars->min.im))
+				(double)y / (HEIGHT / (vars->max.im - vars->min.im))
 				* -1 + vars->max.im);
 		if (button == MOUSE_SCROLL_DOWN)
 			zoom = 0.80;
@@ -41,6 +41,5 @@ int	mouse_commands(int button, int x, int y, t_vars *vars)
 		vars->max.im = interpolate(mouse.im, vars->max.im, interpolation);
 		draw_fractal(vars);
 	}
-//	if ()
 	return (0);
 }

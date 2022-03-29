@@ -2,28 +2,15 @@ NAME		=	fractol
 
 HEADER		=	fractol.h
 
-SRCS		= 	fractol.c key_commands.c ./formulas/mandelbrot.c\
-				get_color.c ft_utils.c ft_strnstr.c\
-				draw.c ft_init.c mouse_commands.c\
-				./formulas/julia.c ./formulas/burning_ship.c
+SRCS		= 	./source/fractol.c ./source/key_commands.c\
+				./source/get_color.c ./source/ft_utils.c ./source/ft_strnstr.c\
+				./source/draw.c ./source/ft_init.c ./source/mouse_commands.c\
+				./formulas/julia.c ./formulas/burning_ship.c ./formulas/mandelbrot.c\
 				
 
 OBJ			=	$(SRCS:%.c=%.o)
 
-
-
-
-
-
 FLAGS		=	-Wall -Wextra -Werror
-
-
-
-
-
-
-
-
 
 INCLUDE		=	-I /usr/local/include
 
