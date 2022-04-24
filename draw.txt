@@ -1,0 +1,74 @@
+typedef struct s_vars
+{
+	void		*mlx;
+	void		*win;
+	t_data		img;
+	int			max_iteration;
+	t_complex	min;
+	t_complex	max;
+	t_complex	factor;
+	t_complex	c;
+	t_complex	k;
+	int			mouse;
+	int			color_shift;
+	int		xs;
+	int		ys;
+	char		color[3];
+	int			(*formula)(struct s_vars *vars);
+}	t_vars;
+
+
+
+void	*draw(void *data)
+{
+	t_vars	*vars = (t_vars)data;
+	t_complex	factor;
+	int			x;
+	int			y;
+
+	factor.re = (vars->max.re - vars->min.re) / (WIDTH - 1);
+	factor.im = (vars->max.im - vars->min.im) / (HEIGHT - 1);
+	y = vars->ys;
+	while (y < HEIGHT)
+	{
+		vars->c.im = vars->max.im - y * factor.im;
+		x = vars->xs;
+		while (x < WIDTH)
+		{
+			vars->c.re = vars->min.re + x * factor.re;
+			get_color(vars->formula(vars), vars);
+			my_mlx_pixel_put(&vars->img, x, y, vars->color);
+			x += 2;
+		}
+		y += 2;
+	}
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.img, 0, 0);
+	mlx_string_put(vars->mlx, vars->win, WIDTH - 100,
+		HEIGHT - 30, 0x00FFFFFF, "H - Help");
+}
+
+
+
+void	draw_fractal(t_vars *vars)
+{
+	pthread_t	id;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i < 4)
+	{
+		vars->xs = i % 2;
+		vars->ys = j % 2;
+		if (i % 2 == 1)
+			j++;
+		
+		pthread_create(&id, 0, draw, (void *)vars);
+		pthread_deatch(id);
+		i++;
+	}	
+}
+
+
+
